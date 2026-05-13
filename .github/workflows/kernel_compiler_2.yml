@@ -6,7 +6,7 @@ on:
       BRANCH_GIT_URL:
         description: 'BRANCH_GIT_URL to clone kernel source'
         required: true
-        default: 'BPF_UNPRIV https://github.com/SN-Abdullah-Al-Noman/SM-A225X'
+        default: 'main https://github.com/r8ss/SM-G780F.git'
 
 jobs:
   build:
@@ -26,6 +26,7 @@ jobs:
 
       - name: 4️⃣ Cloning toolchain
         run: |
+          rm -rf toolchain
           # sudo git clone https://github.com/SN-Abdullah-Al-Noman/toolchain
           
       - name: 5️⃣ Starting kernel compile
