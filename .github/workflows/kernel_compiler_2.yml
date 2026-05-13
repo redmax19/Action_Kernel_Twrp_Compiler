@@ -34,6 +34,7 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
         run: |
           cd kernel_source
+          rm -rf toolchain
           sudo git clone https://github.com/SN-Abdullah-Al-Noman/toolchain
           sudo touch logs.txt && sudo chmod a+w logs.txt
           sudo bash build_kernel.sh |& tee logs.txt
