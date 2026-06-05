@@ -6,7 +6,7 @@ on:
       BRANCH_GIT_URL:
         description: 'BRANCH_GIT_URL to clone twrp device tree'
         required: true
-        default: 'android-12.1 https://github.com/SN-Abdullah-Al-Noman/a22_TWRP12.1_tree'
+        default: 'r8s https://github.com/redmax19/android_device_twrp'
 
 jobs:
   build:
@@ -47,7 +47,7 @@ jobs:
 
       - name: 4️⃣ Cloning twrp device tree.
         run: |
-          git clone https://github.com/SN-Abdullah-Al-Noman/a22_TWRP12.1_tree -b android-12.1 device/samsung/a22
+          git clone https://github.com/redmax19/android_device_twrp -b r8s device/samsung/r8s
           
       - name: 5️⃣ Sync Device Dependencies.
         run: |
