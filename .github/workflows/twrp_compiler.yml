@@ -47,12 +47,14 @@ jobs:
 
       - name: 4️⃣ Cloning twrp device tree.
         run: |
-          sudo git clone https://github.com/SN-Abdullah-Al-Noman/a22_TWRP12.1_tree -b android-12.1 device/samsung/a22
+          git clone https://github.com/SN-Abdullah-Al-Noman/a22_TWRP12.1_tree -b android-12.1 device/samsung/a22
           
       - name: 5️⃣ Sync Device Dependencies.
         run: |
-          sudo bash convert.sh device/samsung/a22/twrp.dependencies && sudo repo sync -j$(nproc --all)
+          bash scripts/convert.sh device/samsung/a22/twrp.dependencies && repo sync -j$(nproc --all)
 
       - name: 6️⃣ Building twrp.
         run: |
-          sudo source build/envsetup.sh && sudo export ALLOW_MISSING_DEPENDENCIES=true && sudo lunch twrp_a22-eng && sudo make clean && sudo make recoveryimage -j$(nproc --all)
+          source build/envsetup.sh
+          export ALLOW_MISSING_DEPENDENCIES=true
+          lunch twrp_a22-eng && make clean && make recoveryimage -j$(nproc --all)
